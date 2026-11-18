@@ -5,28 +5,44 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Yildun · Gizlilik politikası</title>
 <meta name="theme-color" content="#0A1128">
-<link rel="stylesheet" href="fonts.css">
-<style>
-  :root { --ink: #0A1128; --surface: #111A38; --text: #EFE8D9; --muted: #A4AAC0; --signal: #D9B46A; color-scheme: dark; }
-  html { background: var(--ink); }
-  body {
-    margin: 0; background: var(--ink); color: var(--text);
-    font: 16px/1.6 Manrope, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-    padding: max(24px, env(safe-area-inset-top)) max(16px, env(safe-area-inset-right)) max(32px, env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left));
-  }
-  main { max-width: 680px; margin: 0 auto; }
-  h1, h2 { font-family: Fraunces, Georgia, serif; font-weight: 500; line-height: 1.2; }
-  h1 { font-size: 1.9rem; margin: 0.4em 0 0.2em; }
-  h2 { font-size: 1.2rem; margin: 1.8em 0 0.4em; color: var(--signal); }
-  p, li { color: var(--text); }
-  .muted { color: var(--muted); font-size: 0.92rem; }
-  a { color: var(--signal); }
-  ul { padding-left: 1.2em; }
-  .back { display: inline-block; margin-bottom: 8px; text-decoration: none; }
-</style>
+<link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+<link rel="icon" href="assets/icon-192.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="preload" href="assets/fonts/fraunces-latin-full-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/manrope-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/fraunces-latin-ext-full-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/manrope-latin-ext-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/fonts.css">
+<link rel="stylesheet" href="css/site.css">
+<script>document.documentElement.className = 'js';</script>
 </head>
-<body>
-<main>
+<body class="legal">
+<a class="skip" href="#icerik">İçeriğe geç</a>
+<div class="bg" aria-hidden="true">
+  <div class="bg-sky"></div>
+  <div class="dial"><svg viewBox="0 0 1000 1000" focusable="false">
+    <circle class="in" cx="500" cy="500" r="272"/>
+    <circle class="tick" cx="500" cy="500" r="282" pathLength="720" stroke-dasharray=".7 9.3"/>
+    <circle class="gold" cx="500" cy="500" r="436"/>
+    <circle class="tick-s" cx="500" cy="500" r="443" pathLength="1800" stroke-dasharray=".8 9.2"/>
+    <circle class="spoke" cx="500" cy="500" r="465" pathLength="360" stroke-dasharray=".2 19.8"/>
+  </svg></div>
+</div>
+<header class="top">
+  <a class="brand" href="index.html" aria-label="Yildun, ana sayfa">
+    <svg viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+      <g fill="none" stroke="#D9B46A" stroke-width="2.2" stroke-linecap="round" stroke-opacity=".88"><path d="M32 30Q40 21.5 49 9"/><path d="M32 30Q24.5 22 17 14"/><path d="M17 14L13 5M17 14L8 15"/><path d="M32 30V49"/><path d="M32 49L26 58M32 49L38 58"/></g>
+      <g fill="#FFF3D6"><circle cx="49" cy="9" r="3"/><circle cx="13" cy="5" r="2.3"/><circle cx="8" cy="15" r="2.5"/><circle cx="32" cy="49" r="1.7"/><circle cx="26" cy="58" r="2.3"/><circle cx="38" cy="58" r="2.5"/></g>
+      <path d="M32 20.5Q33.2 28.8 41.5 30Q33.2 31.2 32 39.5Q30.8 31.2 22.5 30Q30.8 28.8 32 20.5Z" fill="#F3D58F"/><circle cx="32" cy="30" r="2.2" fill="#fff"/>
+    </svg>
+    <span>Yildun</span>
+  </a>
+  <nav aria-label="Sayfalar">
+    <a href="gizlilik.html" aria-current="page">Gizlilik</a>
+    <a href="kosullar.html">Koşullar</a>
+  </nav>
+</header>
+<main id="icerik">
   <a class="back" href="index.html">← Yildun'a dön</a>
   <h1>Gizlilik politikası</h1>
   <p class="muted">Yildun · AstroCom · Son güncelleme: 18 Kasım 2026</p>
@@ -97,5 +113,16 @@
   <h2>Değişiklikler ve iletişim</h2>
   <p>Bu politika değişirse yeni tarihle burada yayımlanır. Sorular için: <a href="mailto:tr.astrocom@gmail.com">tr.astrocom@gmail.com</a>. Herkese açık kopyası: <a href="https://sharkebu.github.io/yildun-site/gizlilik.html">sharkebu.github.io/yildun-site/gizlilik.html</a>.</p>
 </main>
+<footer class="foot">
+  <div class="wrap">
+    <nav aria-label="Alt bağlantılar">
+      <a href="gizlilik.html">Gizlilik politikası</a>
+      <a href="kosullar.html">Abonelik koşulları</a>
+    </nav>
+    <p>AstroCom · <a href="mailto:tr.astrocom@gmail.com">tr.astrocom@gmail.com</a></p>
+    <p>Yazı tipleri <a href="assets/fonts/OFL-Fraunces.txt">Fraunces</a> ve <a href="assets/fonts/OFL-Manrope.txt">Manrope</a>, SIL Open Font License.</p>
+  </div>
+</footer>
+<script src="js/site.js" defer></script>
 </body>
 </html>

@@ -3,68 +3,268 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Yildun</title>
-<meta name="description" content="Yildun: kelimelerin nereden geldiğini ve birbirine nasıl bağlandığını gösteren Türkçe uygulama.">
+<title>Yildun · Kelimelerin kökeni ve bağları</title>
+<meta name="description" content="Yildun: kelimelerin nereden geldiğini ve birbirine nasıl bağlandığını gösteren Türkçe uygulama. Yakında Google Play’de.">
 <meta name="theme-color" content="#0A1128">
-<link rel="icon" href="icon.svg" type="image/svg+xml">
-<link rel="icon" href="icon-192.png" type="image/png" sizes="192x192">
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
-<link rel="stylesheet" href="fonts.css">
-<style>
-  :root { --ink: #0A1128; --surface: #111A38; --text: #EFE8D9; --muted: #A4AAC0; --signal: #D9B46A; --rule: rgba(239, 232, 217, .14); color-scheme: dark; }
-  html { background: var(--ink); }
-  body {
-    margin: 0; min-height: 100vh; background: var(--ink); color: var(--text);
-    font: 17px/1.6 Manrope, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-    padding: max(40px, env(safe-area-inset-top)) max(16px, env(safe-area-inset-right)) max(32px, env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left));
-    box-sizing: border-box;
-  }
-  main { max-width: 560px; margin: 0 auto; }
-  .mark { display: block; width: 96px; height: 96px; margin: 8px 0 20px -10px; }
-  h1 { font: 500 clamp(2.6rem, 9vw, 3.4rem)/1.05 Fraunces, Georgia, serif; margin: 0 0 .15em; }
-  .rule { width: 56px; height: 1px; background: var(--signal); margin: 18px 0 22px; border: 0; }
-  .lede { font: 400 1.25rem/1.5 Fraunces, Georgia, serif; margin: 0 0 1em; }
-  p { margin: 0 0 1em; }
-  .muted { color: var(--muted); }
-  a { color: var(--signal); }
-  .play {
-    display: inline-block; margin: 12px 0 8px; padding: 12px 22px; border-radius: 999px;
-    border: 1px solid var(--signal); color: var(--signal); text-decoration: none; font-weight: 600;
-  }
-  .play[aria-disabled="true"] { opacity: .6; cursor: default; }
-  nav { display: flex; flex-wrap: wrap; gap: 8px 22px; margin: 36px 0 0; padding-top: 18px; border-top: 1px solid var(--rule); }
-  footer { margin-top: 28px; font-size: .9rem; color: var(--muted); }
-</style>
+<link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+<link rel="icon" href="assets/icon-192.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="preload" href="assets/fonts/fraunces-latin-full-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/manrope-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/fraunces-latin-ext-full-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/manrope-latin-ext-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/fonts.css">
+<link rel="stylesheet" href="css/site.css">
+<script>(function(){var c='js';try{if(sessionStorage.getItem('yildun-acilis'))c+=' gelmis';sessionStorage.setItem('yildun-acilis','1')}catch(e){}document.documentElement.className=c})();</script>
 </head>
-<body>
-<main>
-  <svg class="mark" viewBox="0 0 64 64" role="img" aria-label="Yildun logosu">
-    <defs><radialGradient id="glow" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#F3D58F" stop-opacity=".55"/><stop offset="1" stop-color="#F3D58F" stop-opacity="0"/></radialGradient></defs>
-    <circle cx="32" cy="30" r="15" fill="url(#glow)"/>
-    <g fill="none" stroke="#D9B46A" stroke-width="2.2" stroke-linecap="round" stroke-opacity=".85">
-      <path d="M32 30Q40 21.5 49 9"/><path d="M32 30Q24.5 22 17 14"/><path d="M17 14L13 5M17 14L8 15"/>
-      <path d="M32 30V49"/><path d="M32 49L26 58M32 49L38 58"/>
-    </g>
-    <g fill="#FFF3D6"><circle cx="49" cy="9" r="3"/><circle cx="13" cy="5" r="2.3"/><circle cx="8" cy="15" r="2.5"/><circle cx="32" cy="49" r="1.7"/><circle cx="26" cy="58" r="2.3"/><circle cx="38" cy="58" r="2.5"/></g>
-    <path d="M32 20.5Q33.2 28.8 41.5 30Q33.2 31.2 32 39.5Q30.8 31.2 22.5 30Q30.8 28.8 32 20.5Z" fill="#F3D58F"/>
-    <circle cx="32" cy="30" r="2.2" fill="#fff"/>
-  </svg>
-
-  <h1>Yildun</h1>
-  <hr class="rule">
-  <p class="lede">Bir kelimeye dokunursun, akrabaları çevresinde açılır. Her bağın yanında neden bağlı olduklarını anlatan bir cümle durur.</p>
-  <p class="muted">Türkçe, hesapsız, reklamsız. İlerlemen telefonunda kalır.</p>
-  <p class="muted">Adı da bir kelime: Yildun, Kutup Yıldızı'nın yanındaki sönük bir yıldız. Adı, Türkçe "yıldız"ın Avrupa'da bozulmuş yazımından gelir.</p>
-
-  <!-- PLAY: yayımlanınca href'i https://play.google.com/store/apps/details?id=com.astrocom.kavram yap, aria-disabled'ı ve "Yakında"yı kaldır -->
-  <a class="play" href="#" aria-disabled="true">Yakında Google Play'de</a>
-
-  <nav>
-    <a href="gizlilik.html">Gizlilik politikası</a>
-    <a href="kosullar.html">Abonelik koşulları</a>
-    <a href="mailto:tr.astrocom@gmail.com">Bize yaz</a>
+<body id="ust">
+<a class="skip" href="#icerik">İçeriğe geç</a>
+<div class="bg" aria-hidden="true">
+  <div class="bg-sky"></div>
+  <div class="dial"><svg viewBox="0 0 1000 1000" focusable="false">
+    <circle class="in" cx="500" cy="500" r="272"/>
+    <circle class="tick" cx="500" cy="500" r="282" pathLength="720" stroke-dasharray=".7 9.3"/>
+    <circle class="gold" cx="500" cy="500" r="436"/>
+    <circle class="tick-s" cx="500" cy="500" r="443" pathLength="1800" stroke-dasharray=".8 9.2"/>
+  </svg></div>
+</div>
+<header class="top">
+  <a class="brand" href="#ust" aria-label="Yildun, sayfanın başı">
+    <svg viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+      <g fill="none" stroke="#D9B46A" stroke-width="2.2" stroke-linecap="round" stroke-opacity=".88"><path d="M32 30Q40 21.5 49 9"/><path d="M32 30Q24.5 22 17 14"/><path d="M17 14L13 5M17 14L8 15"/><path d="M32 30V49"/><path d="M32 49L26 58M32 49L38 58"/></g>
+      <g fill="#FFF3D6"><circle cx="49" cy="9" r="3"/><circle cx="13" cy="5" r="2.3"/><circle cx="8" cy="15" r="2.5"/><circle cx="32" cy="49" r="1.7"/><circle cx="26" cy="58" r="2.3"/><circle cx="38" cy="58" r="2.5"/></g>
+      <path d="M32 20.5Q33.2 28.8 41.5 30Q33.2 31.2 32 39.5Q30.8 31.2 22.5 30Q30.8 28.8 32 20.5Z" fill="#F3D58F"/><circle cx="32" cy="30" r="2.2" fill="#fff"/>
+    </svg>
+    <span>Yildun</span>
+  </a>
+  <nav aria-label="Bölümler">
+    <a href="#ag" data-nav="ag">Ağ</a>
+    <a href="#oyunlar" data-nav="oyunlar">Oyunlar</a>
+    <a href="#seyir" data-nav="seyir">Seyir</a>
+    <a href="#plus" data-nav="plus">Yildun+</a>
   </nav>
-  <footer>AstroCom · <a href="mailto:tr.astrocom@gmail.com">tr.astrocom@gmail.com</a><br>Yazı tipleri Fraunces ve Manrope, SIL Open Font License (<a href="fonts/OFL-Fraunces.txt">1</a>, <a href="fonts/OFL-Manrope.txt">2</a>).</footer>
+  <span class="prog" aria-hidden="true"></span>
+</header>
+
+<main id="icerik">
+
+  <section class="hero" aria-labelledby="ad">
+    <div class="wrap hero-in">
+      <div class="hero-t">
+        <svg class="yi" viewBox="0 0 64 64" role="img" aria-label="Yildun logosu: Küçükayı takımyıldızından katlanan Y harfi">
+          <defs><radialGradient id="yi-g"><stop offset="0" stop-color="#F3D58F" stop-opacity=".5"/><stop offset=".45" stop-color="#D9B46A" stop-opacity=".13"/><stop offset="1" stop-color="#D9B46A" stop-opacity="0"/></radialGradient></defs>
+          <g class="yi-cam">
+            <g class="yi-con"><path d="M49 9L32 30" pathLength="1" style="--k:0"/><path d="M32 30L7.2 49.9" pathLength="1" style="--k:1"/><path d="M7.2 49.9L-26.7 53.7" pathLength="1" style="--k:2"/><path d="M-26.7 53.7L-58.4 44" pathLength="1" style="--k:3"/><path d="M-58.4 44L-67.3 63.9" pathLength="1" style="--k:4"/><path d="M-67.3 63.9L-30.3 72.5" pathLength="1" style="--k:5"/><path d="M-30.3 72.5L-26.7 53.7" pathLength="1" style="--k:6"/></g>
+            <circle class="yi-glow" cx="32" cy="30" r="17" fill="url(#yi-g)"/>
+            <g class="yi-l"><path d="M32 30Q40 21.5 49 9" pathLength="1" style="--k:0"/><path d="M32 30Q24.5 22 17 14" pathLength="1" style="--k:1"/><path d="M17 14L13 5" pathLength="1" style="--k:2"/><path d="M17 14L8 15" pathLength="1" style="--k:3"/><path d="M32 30L32 49" pathLength="1" style="--k:4"/><path d="M32 49L26 58" pathLength="1" style="--k:5"/><path d="M32 49L38 58" pathLength="1" style="--k:6"/></g>
+            <g class="yi-st"><circle cx="49" cy="9" r="3.1" style="--x:0.0px;--y:0.0px;--k:0"/><circle cx="13" cy="5" r="2.4" style="--x:-71.4px;--y:39.0px;--k:1"/><circle cx="8" cy="15" r="2.6" style="--x:-75.3px;--y:48.9px;--k:2"/><circle cx="32" cy="49" r="1.7" style="--x:-24.8px;--y:0.9px;--k:3"/><circle cx="26" cy="58" r="2.4" style="--x:-52.7px;--y:-4.3px;--k:4"/><circle cx="38" cy="58" r="2.6" style="--x:-68.3px;--y:14.5px;--k:5"/></g>
+            <circle class="yi-d" cx="32" cy="30" r="1.9"/>
+            <path class="yi-soma" d="M32 20.5Q33.2 28.8 41.5 30Q33.2 31.2 32 39.5Q30.8 31.2 22.5 30Q30.8 28.8 32 20.5Z"/>
+            <circle class="yi-core" cx="32" cy="30" r="2.2"/>
+          </g>
+        </svg>
+        <h1 id="ad">Yildun</h1>
+        <p class="lede">Kelimeler nereden gelir, birbirine nasıl bağlanır?</p>
+        <p class="alt">Türkçe. Hesapsız, reklamsız.</p>
+        <!-- PLAY: uygulama yayımlanınca aşağıdaki <p class="yakin">'ı (ve kapanıştaki ikincisini) şununla değiştir:
+             <a class="cta" href="GOOGLE_PLAY_ADRESI">Google Play'den indir</a> -->
+        <p class="yakin"><svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M10 0Q11 9 20 10Q11 11 10 20Q9 11 0 10Q9 9 10 0Z"/></svg>Yakında Google Play'de</p>
+      </div>
+      <figure class="hero-ph">
+        <div class="ph-f"><img src="assets/ekran/01-ana-kadran-720.webp" srcset="assets/ekran/01-ana-kadran-400.webp 400w, assets/ekran/01-ana-kadran-720.webp 720w" sizes="(min-width: 900px) 320px, 62vw" width="720" height="1558" alt="Yildun ana sayfası: on sekiz dilimli gök kadranı, ortasında günün kelimesi" fetchpriority="high" decoding="async"></div>
+      </figure>
+    </div>
+    <span class="cue" aria-hidden="true"></span>
+  </section>
+
+  <section class="sec" id="ag" data-sec="ag" aria-labelledby="ag-b">
+    <div class="wrap duo">
+      <div>
+        <div class="thread"></div>
+        <h2 id="ag-b" class="rv">Bir kelimeden başla.</h2>
+        <p class="say rv" style="--d:.08s">Bir kelimeye dokun, akrabaları çevresinde açılsın. Her bağın bir cümlelik nedeni var.</p>
+        <p class="ara rv" style="--d:.14s" id="ag-ara">Samandan elektriğe, beş kelime</p>
+        <ol class="adimlar rv" style="--d:.18s" aria-labelledby="ag-ara">
+          <li><button type="button" data-k="kehribar" aria-pressed="true">Kehribar</button></li>
+          <li><button type="button" data-k="saman" aria-pressed="false">Saman</button></li>
+          <li><button type="button" data-k="dilruba" aria-pressed="false">Dilrüba</button></li>
+          <li><button type="button" data-k="elektrik" aria-pressed="false">Elektrik</button></li>
+          <li><button type="button" data-k="elektron" aria-pressed="false">Elektron</button></li>
+        </ol>
+        <div class="sure rv" style="--d:.2s" aria-hidden="true"><i></i></div>
+        <ol class="caps rv" style="--d:.24s" aria-label="Beş kelimenin bağları">
+          <li class="cap on" data-k="kehribar"><b>Adın hikâyesi</b><span>Kehribar, Farsça <mark>kah</mark>-<mark>rubâ</mark>: “saman kapan”. Sürtününce saman çöplerini çeker.</span></li>
+          <li class="cap" data-k="saman"><b>Ortak parça</b><span>İlk parça <mark>kah</mark>, yani saman. Samanyolu’nun eski adı Kehkeşan’da da o var.</span></li>
+          <li class="cap" data-k="dilruba"><b>Ortak parça</b><span>İkinci parça <mark>rubâ</mark>, “kapan”. Kehribar samanı kapar, dilrüba gönlü.</span></li>
+          <li class="cap" data-k="elektrik"><b>Başka dilde</b><span>Kehribarın Yunanca adı <mark>elektron</mark>. Elektrik adını oradan aldı.</span></li>
+          <li class="cap" data-k="elektron"><b>Aynı kökten</b><span>1891’de electric ve ion kelimelerinden kuruldu. Kökü yine Yunanca “kehribar”.</span></li>
+        </ol>
+      </div>
+      <div class="net">
+      <svg viewBox="0 0 600 540" aria-hidden="true" focusable="false">
+        <defs><radialGradient id="nd-g"><stop offset="0" stop-color="#F3D58F" stop-opacity=".42"/><stop offset=".5" stop-color="#D9B46A" stop-opacity=".12"/><stop offset="1" stop-color="#D9B46A" stop-opacity="0"/></radialGradient></defs>
+        <path class="ln" d="M300 285Q200 250 118 178" pathLength="1" data-k="saman" style="--d:.15s"/>
+        <path class="ln far" d="M118 178Q60 300 128 418" pathLength="1" data-k="saman" style="--d:.9s"/>
+        <path class="ln" d="M300 285Q286 180 322 96" pathLength="1" data-k="dilruba" style="--d:.3s"/>
+        <path class="ln" d="M300 285Q410 276 488 196" pathLength="1" data-k="elektrik" style="--d:.45s"/>
+        <path class="ln" d="M300 285Q474 292 474 420" pathLength="1" data-k="elektron" style="--d:.6s"/>
+        <path class="ln far" d="M488 196Q548 312 474 420" pathLength="1" data-k="elektron" style="--d:1.05s"/>
+        <g transform="translate(118 178)"><g class="nd" data-k="saman" data-pick="saman" style="--d:.7s"><circle class="hit" r="44"/><circle class="halo" r="34" fill="url(#nd-g)"/><circle class="dot" r="7"/><text y="-22">Saman</text></g></g>
+        <g transform="translate(128 418)"><g class="nd far" data-k="saman" data-pick="saman" style="--d:1.4s"><circle class="hit" r="40"/><circle class="halo" r="28" fill="url(#nd-g)"/><circle class="dot" r="5"/><text y="36">Kehkeşan</text></g></g>
+        <g transform="translate(322 96)"><g class="nd" data-k="dilruba" data-pick="dilruba" style="--d:.85s"><circle class="hit" r="44"/><circle class="halo" r="34" fill="url(#nd-g)"/><circle class="dot" r="7"/><text y="-22">Dilrüba</text></g></g>
+        <g transform="translate(488 196)"><g class="nd" data-k="elektrik" data-pick="elektrik" style="--d:1s"><circle class="hit" r="44"/><circle class="halo" r="34" fill="url(#nd-g)"/><circle class="dot" r="7"/><text y="-22">Elektrik</text></g></g>
+        <g transform="translate(474 420)"><g class="nd" data-k="elektron" data-pick="elektron" style="--d:1.15s"><circle class="hit" r="44"/><circle class="halo" r="34" fill="url(#nd-g)"/><circle class="dot" r="7"/><text y="40">Elektron</text></g></g>
+        <g transform="translate(300 285)"><g class="nd core" data-k="kehribar" data-pick="kehribar" style="--d:0s"><circle class="hit" r="50"/><circle class="halo" r="46" fill="url(#nd-g)"/><circle class="dot" r="10"/><text y="54">Kehribar</text></g></g>
+      </svg>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="ekranlar" aria-labelledby="ek-b">
+    <div class="wrap">
+      <div class="thread"></div>
+      <h2 id="ek-b" class="rv">Gökten bir kelime seç.</h2>
+      <p class="say rv" style="--d:.08s">Ana sayfa bir gök kadranı: her alan bir dilim, her kelime bir yıldız. Birine dokun, ağı açılsın.</p>
+      <p class="sayac rv" style="--d:.16s" data-say>
+        <span><b data-n="2557">2557</b>kelime</span>
+        <span><b data-n="5495">5495</b>bağ</span>
+        <span><b data-n="72">72</b>rota</span>
+        <span><b data-n="18">18</b>alan</span>
+      </p>
+      <div class="phones fall" role="group" aria-label="Uygulamadan üç ekran">
+      <figure class="ph rv">
+        <div class="ph-f"><img src="assets/ekran/02-kelime-ag-720.webp" srcset="assets/ekran/02-kelime-ag-400.webp 400w, assets/ekran/02-kelime-ag-720.webp 720w" sizes="(min-width: 1000px) 300px, (min-width: 700px) 30vw, 66vw" width="720" height="1558" alt="Yildun’da Kehribar kelimesinin ağı: Saman, Elektron, Dilrüba ve Kehkeşan çevresinde; altta hikâye kartı" loading="lazy" decoding="async"></div>
+        <figcaption><b>Ağ</b>Kelime ortada, akrabaları çevresinde.</figcaption>
+      </figure>
+      <figure class="ph rv" style="--d:0.12s">
+        <div class="ph-f"><img src="assets/ekran/03-kelime-baglar-720.webp" srcset="assets/ekran/03-kelime-baglar-400.webp 400w, assets/ekran/03-kelime-baglar-720.webp 720w" sizes="(min-width: 1000px) 300px, (min-width: 700px) 30vw, 66vw" width="720" height="1558" alt="Kehribar kartının Bağlar sekmesi: her bağın türü ve bir cümlelik nedeni" loading="lazy" decoding="async"></div>
+        <figcaption><b>Bağlar</b>Her bağın türü ve nedeni.</figcaption>
+      </figure>
+      <figure class="ph rv" style="--d:0.24s">
+        <div class="ph-f"><img src="assets/ekran/04-kelime-yildun-720.webp" srcset="assets/ekran/04-kelime-yildun-400.webp 400w, assets/ekran/04-kelime-yildun-720.webp 720w" sizes="(min-width: 1000px) 300px, (min-width: 700px) 30vw, 66vw" width="720" height="1558" alt="Yildun kelimesinin kartı ve ağı: Kutup Yıldızı’na bağlı, altta adının hikâyesi" loading="lazy" decoding="async"></div>
+        <figcaption><b>Hikâye</b>Kelimenin adı nereden gelir?</figcaption>
+      </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="oyunlar" data-sec="oyunlar" aria-labelledby="oy-b">
+    <div class="wrap duo">
+      <div>
+        <div class="thread"></div>
+        <svg class="umi" viewBox="-74 0 130 80" role="img" aria-label="Küçükayı takımyıldızı; yıldızları sırayla yanar">
+          <path d="M49 9L32 30" pathLength="1" style="--d:0.90s"/><path d="M32 30L7.2 49.9" pathLength="1" style="--d:0.99s"/><path d="M7.2 49.9L-26.7 53.7" pathLength="1" style="--d:1.08s"/><path d="M-26.7 53.7L-58.4 44" pathLength="1" style="--d:1.17s"/><path d="M-58.4 44L-67.3 63.9" pathLength="1" style="--d:1.26s"/><path d="M-67.3 63.9L-30.3 72.5" pathLength="1" style="--d:1.35s"/><path d="M-30.3 72.5L-26.7 53.7" pathLength="1" style="--d:1.44s"/>
+          <circle cx="49" cy="9" r="3" style="--d:0s"/><circle class="yil" cx="32" cy="30" r="2.2" style="--d:0.45s"/><circle cx="7.2" cy="49.9" r="1.7" style="--d:0.6s"/><circle cx="-26.7" cy="53.7" r="2.3" style="--d:0.75s"/><circle cx="-58.4" cy="44" r="2.6" style="--d:0.15s"/><circle cx="-67.3" cy="63.9" r="2.4" style="--d:0.3s"/><circle cx="-30.3" cy="72.5" r="2" style="--d:0.9s"/>
+        </svg>
+        <h2 id="oy-b" class="rv">Oynadıkça yıldız yanar.</h2>
+        <p class="say rv" style="--d:.08s">Her oyunun gökte bir takımyıldızı var. Biten her tur ışık kazandırır, ışık biriktikçe yıldızlar yanar.</p>
+        <ul class="oyunlar rv" style="--d:.16s" aria-label="Oyunlar">
+          <li>Günün Köprüsü</li><li>Hangi Kelime?</li><li>Bağı Bil</li><li>Eşleştir</li><li>Harf Avı</li><li>Dörtlü</li><li>Gizli Kelime</li><li>Sıcak Soğuk</li><li>Soy Ağacı</li><li>Tek Yabancı</li><li>Hangi Dilden?</li><li>Pekiştir</li>
+        </ul>
+      </div>
+      <div class="pair fall">
+      <figure class="ph rv">
+        <div class="ph-f"><img src="assets/ekran/05-oyna-720.webp" srcset="assets/ekran/05-oyna-400.webp 400w, assets/ekran/05-oyna-720.webp 720w" sizes="(min-width: 900px) 280px, 44vw" width="720" height="1558" alt="Oyna ekranı: ışıklardan oluşan galaksi, haftanın takımyıldızı, Günün Köprüsü ve Pekiştir" loading="lazy" decoding="async"></div>
+        <figcaption><b>Oyna</b>Galaksin ve haftanın takımyıldızı.</figcaption>
+      </figure>
+      <figure class="ph rv" style="--d:0.14s">
+        <div class="ph-f"><img src="assets/ekran/06-oyun-bitis-720.webp" srcset="assets/ekran/06-oyun-bitis-400.webp 400w, assets/ekran/06-oyun-bitis-720.webp 720w" sizes="(min-width: 900px) 280px, 44vw" width="720" height="1558" alt="Hangi Kelime oyununun bitiş ekranı: Küçükayı takımyıldızı ve dolan ışık halkaları" loading="lazy" decoding="async"></div>
+        <figcaption><b>Tur bitince</b>Halkalar dolar, sıradaki yıldız yanar.</figcaption>
+      </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="seyir" data-sec="seyir" aria-labelledby="se-b">
+    <div class="wrap">
+      <div class="duo ust">
+        <div>
+          <div class="thread"></div>
+          <h2 id="se-b" class="rv">Aynı yaprak, iki ad.</h2>
+          <p class="say rv" style="--d:.08s">Çay karadan gittiği yerde ça, Fujian limanlarından gemiyle gittiği yerde te adını aldı. Seyir, bir kelimenin yolunu harita üstünde durak durak gezdirir.</p>
+        </div>
+        <svg class="rota" viewBox="-10 0 590 316" role="img" aria-label="Çay kelimesinin iki yolu. Karadan: Kuzey Çin’de chá, Rusya’da čaj, Türkiye’de çay. Denizden: Amoy limanında tê, Hollanda’da thee, İngiltere’de tea.">
+          <defs><clipPath id="rota-c"><rect x="0" y="0" width="560" height="316"/></clipPath></defs>
+          <g clip-path="url(#rota-c)">
+            <path class="kara" id="rota-kara" d="M40 150C104 150 112 66 200 62C262 59 300 58 370 58C440 58 486 58 536 58"/>
+            <path class="deniz" id="rota-deniz" d="M40 150C104 150 112 234 200 238C262 241 300 242 370 242C440 242 486 242 536 242"/>
+          </g>
+          <g class="st bas" data-x="40"><circle class="hl" cx="40" cy="150" r="11"/><circle cx="40" cy="150" r="5"/><text class="yer" x="40" y="122" text-anchor="middle">Çin</text></g>
+          <g class="st" data-x="150"><text class="kol" dy="-9" text-anchor="middle"><textPath href="#rota-kara" startOffset="112">karadan</textPath></text><text class="kol" dy="22" text-anchor="middle"><textPath href="#rota-deniz" startOffset="112">denizden</textPath></text></g>
+          <g class="st" data-x="200"><circle cx="200" cy="62" r="4.5"/><text class="soz" x="200" y="40" text-anchor="middle" lang="zh-Latn">chá</text><text class="yer" x="200" y="90" text-anchor="middle">Kuzey Çin</text></g>
+          <g class="st" data-x="370"><circle cx="370" cy="58" r="4.5"/><text class="soz" x="370" y="36" text-anchor="middle" lang="ru-Latn">čaj</text><text class="yer" x="370" y="86" text-anchor="middle">Rusya</text></g>
+          <g class="st son" data-x="536"><circle class="hl" cx="536" cy="58" r="11"/><circle cx="536" cy="58" r="5"/><text class="soz" x="536" y="36" text-anchor="middle">çay</text><text class="yer" x="536" y="86" text-anchor="middle">Türkiye</text></g>
+          <g class="st" data-x="200"><circle cx="200" cy="238" r="4.5"/><text class="soz" x="200" y="278" text-anchor="middle" lang="nan-Latn">tê</text><text class="yer" x="200" y="304" text-anchor="middle">Amoy limanı</text></g>
+          <g class="st" data-x="370"><circle cx="370" cy="242" r="4.5"/><text class="soz" x="370" y="282" text-anchor="middle" lang="nl">thee</text><text class="yer" x="370" y="308" text-anchor="middle">Hollanda</text></g>
+          <g class="st son" data-x="536"><circle class="hl" cx="536" cy="242" r="11"/><circle cx="536" cy="242" r="5"/><text class="soz" x="536" y="282" text-anchor="middle" lang="en">tea</text><text class="yer" x="536" y="308" text-anchor="middle">İngiltere</text></g>
+        </svg>
+      </div>
+      <div class="phones fall" role="group" aria-label="Seyir'den üç ekran">
+      <figure class="ph rv">
+        <div class="ph-f"><img src="assets/ekran/07-seyir-giris-720.webp" srcset="assets/ekran/07-seyir-giris-400.webp 400w, assets/ekran/07-seyir-giris-720.webp 720w" sizes="(min-width: 1000px) 300px, (min-width: 700px) 30vw, 66vw" width="720" height="1558" alt="Seyir girişi: Çay mı, te mi? Usturlap merceğinde dünya, kara ve deniz yolları" loading="lazy" decoding="async"></div>
+        <figcaption><b>Çay mı, te mi?</b>Bir kelime, iki yol.</figcaption>
+      </figure>
+      <figure class="ph rv" style="--d:0.12s">
+        <div class="ph-f"><img src="assets/ekran/08-seyir-durak-720.webp" srcset="assets/ekran/08-seyir-durak-400.webp 400w, assets/ekran/08-seyir-durak-720.webp 720w" sizes="(min-width: 1000px) 300px, (min-width: 700px) 30vw, 66vw" width="720" height="1558" alt="Seyir durağı Karasaki: harita üstünde Japonya, cha kelimesi ve zaman şeridi" loading="lazy" decoding="async"></div>
+        <figcaption><b>Durak durak</b>Her durakta bir yer, bir tarih, bir kelime.</figcaption>
+      </figure>
+      <figure class="ph rv" style="--d:0.24s">
+        <div class="ph-f"><img src="assets/ekran/11-seyir-bitis-720.webp" srcset="assets/ekran/11-seyir-bitis-400.webp 400w, assets/ekran/11-seyir-bitis-720.webp 720w" sizes="(min-width: 1000px) 300px, (min-width: 700px) 30vw, 66vw" width="720" height="1558" alt="Seyir bitiş ekranı: kelimenin başka dillerdeki biçimleri ve kazanılan ışık" loading="lazy" decoding="async"></div>
+        <figcaption><b>Yolun sonu</b>Kelimenin bütün biçimleri bir arada.</figcaption>
+      </figure>
+      </div>
+      <p class="not orta rv">Seyir, uygulamanın sonraki güncellemesiyle gelecek.</p>
+    </div>
+  </section>
+
+  <section class="sec" id="plus" data-sec="plus" aria-labelledby="pl-b">
+    <div class="wrap duo plus">
+      <div>
+        <div class="thread"></div>
+        <h2 id="pl-b" class="rv">Yildun+</h2>
+        <p class="say rv" style="--d:.08s">Yildun’u kullanmak için abone olmak gerekmez.</p>
+        <dl class="defter rv" style="--d:.14s">
+          <div><dt>Ücretsiz</dt><dd>Astronomi ve Kelimeler alanları, günün kelimesi, oyunlar, Pekiştir.</dd></div>
+          <div class="arti"><dt>Yildun+</dt><dd>Bütün hikâyeler, Seyir, sınırsız galaksi.</dd></div>
+        </dl>
+      </div>
+      <div class="fiyat">
+        <ul class="planlar rv" style="--d:.2s" aria-label="Yildun+ fiyatları">
+          <li class="one"><span class="ad">Yıllık<small>İlk 7 gün ücretsiz</small></span><span class="tut">₺799,99<small>/ yıl</small></span></li>
+          <li><span class="ad">Aylık</span><span class="tut">₺79,99<small>/ ay</small></span></li>
+        </ul>
+        <p class="not rv" style="--d:.26s">Satın alma Google Play’den yapılır. Ayrıntılar <a href="kosullar.html">abonelik koşullarında</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec son" id="ad-hikayesi" aria-labelledby="son-b">
+    <div class="wrap">
+      <div class="thread"></div>
+      <div class="rv"><svg class="mark" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+      <g fill="none" stroke="#D9B46A" stroke-width="2.2" stroke-linecap="round" stroke-opacity=".88"><path d="M32 30Q40 21.5 49 9"/><path d="M32 30Q24.5 22 17 14"/><path d="M17 14L13 5M17 14L8 15"/><path d="M32 30V49"/><path d="M32 49L26 58M32 49L38 58"/></g>
+      <g fill="#FFF3D6"><circle cx="49" cy="9" r="3"/><circle cx="13" cy="5" r="2.3"/><circle cx="8" cy="15" r="2.5"/><circle cx="32" cy="49" r="1.7"/><circle cx="26" cy="58" r="2.3"/><circle cx="38" cy="58" r="2.5"/></g>
+      <path d="M32 20.5Q33.2 28.8 41.5 30Q33.2 31.2 32 39.5Q30.8 31.2 22.5 30Q30.8 28.8 32 20.5Z" fill="#F3D58F"/><circle cx="32" cy="30" r="2.2" fill="#fff"/>
+    </svg></div>
+      <h2 id="son-b" class="rv">Adı da bir kelime.</h2>
+      <p class="say rv" style="--d:.08s">Yildun, Kutup Yıldızı’nın yanındaki sönük bir yıldız. Adı, Türkçe “yıldız”ın Avrupa’da bozulmuş yazımı.</p>
+      <p class="yakin rv" style="--d:.16s"><svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M10 0Q11 9 20 10Q11 11 10 20Q9 11 0 10Q9 9 10 0Z"/></svg>Yakında Google Play'de</p>
+      <p class="yaz rv" style="--d:.24s">Bize yaz: <a href="mailto:tr.astrocom@gmail.com">tr.astrocom@gmail.com</a></p>
+    </div>
+  </section>
+
 </main>
+
+<footer class="foot">
+  <div class="wrap">
+    <nav aria-label="Alt bağlantılar">
+      <a href="gizlilik.html">Gizlilik politikası</a>
+      <a href="kosullar.html">Abonelik koşulları</a>
+    </nav>
+    <p>AstroCom · <a href="mailto:tr.astrocom@gmail.com">tr.astrocom@gmail.com</a></p>
+    <p>Yazı tipleri <a href="assets/fonts/OFL-Fraunces.txt">Fraunces</a> ve <a href="assets/fonts/OFL-Manrope.txt">Manrope</a>, SIL Open Font License.</p>
+  </div>
+</footer>
+<script src="js/site.js" defer></script>
 </body>
 </html>
