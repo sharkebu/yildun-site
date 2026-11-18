@@ -3,8 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Kavram · Gizlilik politikası</title>
+<title>Yildun · Gizlilik politikası</title>
 <meta name="theme-color" content="#0A1128">
+<link rel="stylesheet" href="fonts.css">
 <style>
   :root { --ink: #0A1128; --surface: #111A38; --text: #EFE8D9; --muted: #A4AAC0; --signal: #D9B46A; color-scheme: dark; }
   html { background: var(--ink); }
@@ -26,43 +27,75 @@
 </head>
 <body>
 <main>
-  <a class="back" href="index.html">← Kavram</a>
+  <a class="back" href="index.html">← Yildun'a dön</a>
   <h1>Gizlilik politikası</h1>
-  <p class="muted">Kavram · AstroCom · Son güncelleme: 9 Kasım 2026</p>
+  <p class="muted">Yildun · AstroCom · Son güncelleme: 18 Kasım 2026</p>
 
-  <p>Kavram, kelimelerin kökenini ve birbirine bağlarını gezerek öğreten bir uygulamadır. Bu sayfa, uygulamanın hangi bilgileri nerede tuttuğunu anlatır. Kısaca: <b>Kavram hiçbir kişisel veri toplamaz, hiçbir yere göndermez.</b></p>
+  <p>Yildun, kelimelerin kökenini ve birbirine bağlarını gezerek öğreten bir uygulamadır. Bu sayfa, uygulamanın hangi bilgileri nerede tuttuğunu anlatır. Kısaca: <b>ilerlemen yalnızca cihazında durur. Hesap ve reklam yoktur.</b> İzin verirsen adsız kullanım bilgisi gönderilir. Google Play'den indirilen sürümde, Yildun+ aboneliğini doğrulamak için Google Play ve RevenueCat'e bağlanılır; aşağıda ayrıntısı var.</p>
 
-  <h2>Topladığımız veriler</h2>
-  <p>Hiçbiri. Kavram'da hesap, sunucu, reklam, ölçüm (analitik) ya da hata raporlama aracı yoktur. Uygulama çalışırken internete bağlanmaz; bütün kelimeler ve yazı tipleri uygulamanın içindedir.</p>
+  <h2>Varsayılan durum: hiçbir şey gönderilmez</h2>
+  <p>Yildun'da hesap ve reklam yoktur. Bütün kelimeler ve yazı tipleri uygulamanın içindedir. "Kullanım verisi gönder" kapalıyken (ilk kurulumda kapalıdır) uygulama yalnızca Yildun+ aboneliği için internete bağlanır (aşağıda "Yildun+ aboneliği"). Satın almanın olmadığı sürümlerde, örneğin kapalı deneme sürümünde, internete hiç bağlanmaz.</p>
+
+  <h2>İzin verirsen: adsız kullanım verisi</h2>
+  <p>Uygulama bir kez sorar: "Yildun'u birlikte büyütelim". "İzin ver" dersen, hangi ekranların sevildiğini ve nerede takılındığını görmek için aşağıdakiler gönderilir:</p>
+  <ul>
+    <li>uygulamanın açıldığı, hangi ekranın (Keşfet, Rotalar, Oyna, Koleksiyon, İstatistikler, Ayarlar) açıldığı,</li>
+    <li>hangi kelimenin hangi yoldan açıldığı (ağdan, aramadan, rotadan, oyundan), bir rotanın başlayıp bittiği,</li>
+    <li>bir oyunun başlayıp bittiği ya da yarıda bırakıldığı, sonucu ve süresi; Pekiştir sorularında doğru/yanlış,</li>
+    <li>sonuç vermeyen bir aramanın metni (yalnızca harflerden oluşan, en çok iki kelime ve 30 harf ise; rakam, @ ya da nokta içeriyorsa yalnızca uzunluğu), atlanan rehberler, Yildun+ için "Açılınca haber ver"e basıldığı,</li>
+    <li>Yildun+ ekranının açıldığı, hangi planla satın almanın denendiği ve sonucu (alındı, vazgeçildi, hata), satın almaların geri yüklendiği (ödeme bilgisi değil, yalnızca bu adımlar),</li>
+    <li>uygulamada bir hata olursa hata iletisinin ilk 200 harfi,</li>
+    <li>uygulamanın sürümü, kaç gündür kurulu olduğu ve serinin kaç gün olduğu,</li>
+    <li>bu cihaz için üretilen rastgele bir kimlik (ör. <code>3f2a…</code>). Bu kimlik adından, telefonundan ya da Google hesabından türetilmez; yalnızca aynı cihazdan gelen olayları birbirine bağlar.</li>
+  </ul>
+  <p><b>Hiçbir zaman gönderilmeyenler:</b> adın, e-postan, telefon numaran, konumun, rehberin, reklam kimliğin, favori listen, yedek dosyan, paylaştığın metinler.</p>
+  <p><b>Nereye gider:</b> veriler şifreli bağlantıyla (HTTPS) ölçüm hizmeti PostHog'un Avrupa Birliği'ndeki sunucusuna (eu.i.posthog.com) gönderilir ve orada bizim adımıza işlenir. Başka kimseyle paylaşılmaz, satılmaz, reklam için kullanılmaz. Her internet isteğinde olduğu gibi IP adresin bağlantı sırasında sunucuya ulaşır; olaylardan konum çıkarılmaz ve IP adresi olaylarla birlikte saklanmaz.</p>
+  <p><b>Nasıl kapatılır:</b> Ayarlar → Verilerin → "Kullanım verisi gönder". Kapatınca gönderilmeyi bekleyenler ve cihazdaki rastgele kimlik hemen silinir; bundan sonra hiçbir şey gönderilmez. Daha önce gönderilmiş olaylar kimlik silindiği için artık sana bağlanamaz.</p>
+  <p>Bağlantı yoksa olaylar cihazda kısa bir sırada (en çok 300 olay) bekler, bağlantı gelince gönderilir. Uygulama internetsiz de tam çalışır.</p>
+
+  <h2>Yildun+ aboneliği</h2>
+  <p>Google Play'den indirilen sürümde Yildun+ aboneliği satın alınabilir. Satın alma baştan sona Google Play'de yapılır: kart ve fatura bilgilerin Google'da kalır, Yildun bunları görmez.</p>
+  <p>Aboneliğin açık olup olmadığını öğrenmek için Yildun, abonelik hizmeti RevenueCat'i (RevenueCat, Inc., ABD) kullanır. Uygulama açılınca ve Yildun+ ekranında Google Play'e ve RevenueCat'e bağlanır. Bu bağlantı "Kullanım verisi gönder" ayarından bağımsızdır, çünkü abonelik onsuz doğrulanamaz. RevenueCat'e gidenler:</p>
+  <ul>
+    <li>bu kurulum için üretilen rastgele bir kimlik (adından, e-postandan, telefonundan ya da Google hesabından türetilmez),</li>
+    <li>satın alma geçmişi: hangi plan, ne zaman alındı, deneme sürüyor mu, abonelik açık mı, iptal edildi mi,</li>
+    <li>cihazın dili ve mağazadaki para birimi (fiyatı doğru göstermek için).</li>
+  </ul>
+  <p>Adın, e-postan, reklam kimliğin ve ilerlemen RevenueCat'e gönderilmez. Her internet isteğinde olduğu gibi IP adresin bağlantı sırasında sunucuya ulaşır. RevenueCat bu bilgileri bizim adımıza, aboneliği yönetmek ve abonelik sayılarını (kaç deneme, kaç yenileme) görmek için işler; satmaz, reklam için kullanmaz. Google Play'deki satın alma kayıtları Google'ın kendi gizlilik politikasına tabidir.</p>
+  <p><b>İptal:</b> Google Play → Ödemeler ve abonelikler → Abonelikler. Uygulamayı silmek aboneliği iptal etmez. Koşulların tamamı (yenilenme, deneme, iptal) herkese açık sitedeki "Abonelik koşulları" sayfasındadır.</p>
+  <p><b>Silme:</b> RevenueCat'teki abonelik kaydının silinmesini aşağıdaki e-posta adresinden isteyebilirsin. Kaydı bulabilmemiz için satın alma tarihini ve Google Play sipariş numarasını (GPA. ile başlar) yaz. Kaydı silmek aboneliği iptal etmez; iptal Google Play'den yapılır.</p>
 
   <h2>Cihazında kalan bilgiler</h2>
   <p>Uygulamanın çalışması için aşağıdakiler yalnızca senin cihazında, uygulamanın kendi deposunda tutulur:</p>
   <ul>
     <li>gezdiğin kelimeler, favorilerin ve bitirdiğin rotalar,</li>
     <li>oyun ve Pekiştir ilerlemen, serin ve rozetlerin,</li>
-    <li>ayarların (yazı boyutu, titreşim, hatırlatma saati gibi).</li>
+    <li>ayarların (yazı boyutu, titreşim, hatırlatma saati gibi),</li>
+    <li>Yildun+ açıksa aboneliğin bitiş tarihi (internetsizken de açık kalsın diye).</li>
   </ul>
-  <p>Bu bilgiler bize ya da başka birine ulaşmaz. Uygulamayı silersen ya da Ayarlar'daki "İlerlemeyi sıfırla" düğmesine basarsan silinir.</p>
+  <p>Bu bilgiler bize ya da başka birine ulaşmaz (yukarıdaki adsız kullanım verisi dışında; o da yalnızca izin verirsen). Uygulamayı silersen ya da Ayarlar'daki "İlerlemeyi sıfırla" düğmesine basarsan silinir.</p>
 
   <h2>Senin paylaştıkların</h2>
-  <p>"Yedeği dosyaya kaydet", "Paylaş" ve "Hata bildir" düğmeleri telefonunun paylaşım penceresini açar. Dosya ya da metin yalnızca sen bir yer seçersen, senin seçtiğin uygulamaya gider (ör. e-posta, Drive, mesajlaşma). Bu aktarım o uygulamanın kendi kurallarına tabidir; Kavram bir kopyasını tutmaz.</p>
+  <p>"Yedeği dosyaya kaydet", "Paylaş" ve "Hata bildir" düğmeleri telefonunun paylaşım penceresini açar. Dosya ya da metin yalnızca sen bir yer seçersen, senin seçtiğin uygulamaya gider (ör. e-posta, Drive, mesajlaşma). Bu aktarım o uygulamanın kendi kurallarına tabidir; Yildun bir kopyasını tutmaz.</p>
   <p>Android'in kendi yedekleme özelliği açıksa, işletim sistemi uygulama verisini Google hesabındaki yedeğine alabilir. Bu Android'in bir özelliğidir ve telefonunun ayarlarından yönetilir.</p>
 
   <h2>İzinler</h2>
   <ul>
+    <li><b>İnternet:</b> Yildun+ aboneliğini doğrulamak için (Google Play sürümünde) ve "Kullanım verisi gönder" açıksa adsız kullanım verisini göndermek için.</li>
+    <li><b>Google Play faturalandırma:</b> Yildun+ satın alma penceresini açmak için (Google Play sürümünde).</li>
     <li><b>Bildirim:</b> yalnızca günlük hatırlatma için, sen açarsan istenir. İstediğin an Ayarlar'dan kapatabilirsin.</li>
     <li><b>Titreşim:</b> dokunuşlarda hafif geri bildirim için. Ayarlar'dan kapatılabilir.</li>
     <li><b>Açılışta çalışma:</b> telefon yeniden başlayınca kurulu hatırlatmaların korunması için.</li>
   </ul>
 
   <h2>Çocuklar</h2>
-  <p>Kavram hiçbir yaştan kullanıcının kişisel verisini toplamadığı için çocuklardan da veri toplamaz.</p>
+  <p>Yildun hiçbir yaştan kullanıcıdan ad, e-posta ya da konum gibi kişisel veri istemez. Adsız kullanım verisi varsayılan olarak kapalıdır ve yalnızca kullanıcı izin verirse gönderilir.</p>
 
   <h2>KVKK</h2>
-  <p>Kavram, 6698 sayılı Kişisel Verilerin Korunması Kanunu kapsamında kişisel veri işlemez: veriler cihazdan çıkmaz ve bize ulaşmaz. İleride bu durum değişirse (ör. bir abonelik ya da hesap eklenirse) bu sayfa önceden güncellenir ve uygulamada duyurulur.</p>
+  <p>İlerlemen cihazdan çıkmaz. Adsız kullanım verisi yalnızca açık iznin üzerine, uygulamayı geliştirmek amacıyla toplanır; rastgele kimlik seni doğrudan tanımlamaz. Yildun+ satın alırsan abonelik kaydın, aboneliği sağlamak için RevenueCat (ABD) ve Google tarafından işlenir; bu, verinin yurt dışındaki sunuculara aktarılması demektir. 6698 sayılı Kişisel Verilerin Korunması Kanunu'ndan doğan hakların için (bilgi isteme, silme, itiraz) aşağıdaki adrese yazabilirsin. Kullanım verisi iznini istediğin an Ayarlar'dan geri alabilirsin. İleride bu durum değişirse (ör. bir hesap eklenirse) bu sayfa önceden güncellenir ve uygulamada duyurulur.</p>
 
   <h2>Değişiklikler ve iletişim</h2>
-  <p>Bu politika değişirse yeni tarihle burada yayımlanır. Sorular için: <a href="mailto:tr.astrocom@gmail.com">tr.astrocom@gmail.com</a>. Herkese açık kopyası: <a href="https://sharkebu.github.io/kavram-site/gizlilik.html">sharkebu.github.io/kavram-site/gizlilik.html</a>.</p>
+  <p>Bu politika değişirse yeni tarihle burada yayımlanır. Sorular için: <a href="mailto:tr.astrocom@gmail.com">tr.astrocom@gmail.com</a>. Herkese açık kopyası: <a href="https://sharkebu.github.io/yildun-site/gizlilik.html">sharkebu.github.io/yildun-site/gizlilik.html</a>.</p>
 </main>
 </body>
 </html>
